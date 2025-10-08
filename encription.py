@@ -5,7 +5,7 @@ def textToencrypt(text, key):
     key_len = len(key)
     result_lines = []
     
-    for line in text.splitlines(True):
+    for line in text.splitlines():
         result = ""
         for i, c in enumerate(line):
             if c == "\n":

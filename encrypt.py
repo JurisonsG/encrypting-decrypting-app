@@ -30,23 +30,22 @@ def encrypt(root):
         global file_text
         file_text = chooseFile()
         if not file_text:
-            messagebox.showerror("Error", "Fails netika nolasīts!")
+            messagebox.showerror("Error", "Fail could't be read!")
             return
 
-        # Nolasa atslēgu un faila nosaukumu tikai tad, kad poga nospiesta
         key = keyInput.get()
         fileName = fileNameInput.get()
 
         if not key:
-            messagebox.showerror("Error", "Ievadi atslēgu!")
+            messagebox.showerror("Error", "Write encription key!")
             return
         if not fileName:
-            messagebox.showerror("Error", "Ievadi faila nosaukumu!")
+            messagebox.showerror("Error", "Write file name!")
             return
 
         encrypted_text = textToencrypt(file_text, key)
         createFile(encrypted_text, fileName)
-        messagebox.showinfo("Success", f"Rezultāts saglabāts failā: {fileName}")
+        messagebox.showinfo("Success", f"Result has been saved in a file: {fileName}")
 
     chooseFileButton = tk.Button(page, text="Choose file", font=("Arial", 16), command=handleFile)
     chooseFileButton.pack(pady=10)

@@ -1,6 +1,5 @@
 import tkinter as tk
-from functions import window, closeWindow, chooseFile
-from encription import createFile
+from functions import window, closeWindow, chooseFile, createFile
 from tkinter import messagebox
 from decryption import textTodecrypt
 

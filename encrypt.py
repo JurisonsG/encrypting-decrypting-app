@@ -1,6 +1,6 @@
 import tkinter as tk
-from functions import window, closeWindow, chooseFile
-from encription import textToencrypt, createFile
+from functions import window, closeWindow, chooseFile, createFile
+from encription import textToencrypt
 from tkinter import messagebox
 
 file_text = ""

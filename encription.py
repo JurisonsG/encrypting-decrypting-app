@@ -17,8 +17,3 @@ def textToencrypt(text, key):
         result_lines.append(result.strip())
     
     return "\n".join(result_lines)
-
-def createFile(text, filename):
-
-    with open(filename, "w", encoding="utf-8") as file:
-        file.write(text)

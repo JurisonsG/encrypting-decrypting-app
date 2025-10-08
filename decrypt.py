@@ -1,7 +1,7 @@
 import tkinter as tk
 from functions import window, closeWindow, chooseFile, createFile
 from tkinter import messagebox
-from decryption import textTodecrypt
+from decryption import cryptToText
 
 file_text = ""
 
@@ -43,7 +43,7 @@ def decrypt(root):
             messagebox.showerror("Error", "Write file name!")
             return
 
-        decrypted_text = textTodecrypt(file_text, key)
+        decrypted_text = cryptToText(file_text, key)
         createFile(decrypted_text, fileName)
         messagebox.showinfo("Success", f"Result has been saved in a file: {fileName}")
 

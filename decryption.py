@@ -1,4 +1,4 @@
-def textTodecrypt(bText, key):
+def cryptToText(bText, key):
     if not bText or not key:
         return ""
     

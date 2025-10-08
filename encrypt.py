@@ -3,7 +3,7 @@ from functions import window, closeWindow, chooseFile
 from encription import textToencrypt, createFile
 from tkinter import messagebox
 
-file_text = ""  # globāls mainīgais
+file_text = ""
 
 def encrypt(root):
     global file_text

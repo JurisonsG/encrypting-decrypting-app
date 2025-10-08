@@ -3,16 +3,20 @@ def textToencrypt(text, key):
         return ""
     
     key_len = len(key)
-    result = ""
+    result_lines = []
     
-    for i, c in enumerate(text):
-        key_c = key[i % key_len]
-        # XOR operācija starp simbolu un atslēgas simbolu
-        encrypted_char = chr(ord(c) ^ ord(key_c))
-        # Pārvēršam katru simbolu binārā 8 bitu formātā
-        result += format(ord(encrypted_char), '08b') + " "
+    for line in text.splitlines(True):
+        result = ""
+        for i, c in enumerate(line):
+            if c == "\n":
+                result += "\n"
+                continue
+            key_c = key[i % key_len]
+            encrypted_char = chr(ord(c) ^ ord(key_c))
+            result += format(ord(encrypted_char), '08b') + " "
+        result_lines.append(result.strip())
     
-    return result.strip()
+    return "\n".join(result_lines)
 
 def createFile(text, filename):
 

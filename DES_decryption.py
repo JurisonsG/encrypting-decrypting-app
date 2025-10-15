@@ -6,7 +6,7 @@ from DESfunctions import triple_des_decrypt
 def DES_decryption(root):
 
     page = tk.Toplevel(root)
-    window(page, 500, 400, "DES decryption")
+    window(page, 500, 700, "DES decryption")
 
     title = tk.Label(page, text="DES Decryption", font=("Arial", 20))
     title.pack(pady=10)

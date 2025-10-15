@@ -46,7 +46,6 @@ def DES_decryption(root):
             return
 
         try:
-            # Pārveido hex string uz bytes
             cipher_bytes = bitstring_to_bytes(hex_text)
         except ValueError:
             messagebox.showerror("Error", "Invalid hex input!")

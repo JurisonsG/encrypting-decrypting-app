@@ -1,5 +1,3 @@
-
-# ========== DES tables ==========
 IP = [58,50,42,34,26,18,10,2,
       60,52,44,36,28,20,12,4,
       62,54,46,38,30,22,14,6,
@@ -94,7 +92,6 @@ PC2 = [14,17,11,24,1,5,
 
 SHIFTS = [1,1,2,2,2,2,2,2,1,2,2,2,2,2,2,1]
 
-# ========== Bit helpers ==========
 def permute(block, table, n):
     out = 0
     for pos in table:
@@ -104,7 +101,6 @@ def permute(block, table, n):
 def left_rotate(val, bits, width):
     return ((val << bits) & ((1 << width) - 1)) | (val >> (width - bits))
 
-# ========== Key schedule ==========
 def generate_subkeys(key64):
     key56 = permute(key64, PC1, 64)
     C = (key56 >> 28) & ((1 << 28) - 1)
@@ -118,7 +114,6 @@ def generate_subkeys(key64):
         subkeys.append(subkey)
     return subkeys
 
-# ========== DES round function ==========
 def sbox_substitution(expanded48):
     out = 0
     for i in range(8):
@@ -134,7 +129,6 @@ def feistel(R, subkey):
     s_out = sbox_substitution(x)
     return permute(s_out, P, 32)
 
-# ========== DES block encrypt/decrypt ==========
 def des_block_encrypt(block, subkeys):
     if len(block) != 8:
         raise ValueError("Block must be 8 bytes")
@@ -150,7 +144,6 @@ def des_block_encrypt(block, subkeys):
 def des_block_decrypt(block, subkeys):
     return des_block_encrypt(block, list(reversed(subkeys)))
 
-# ========== Padding ==========
 def pkcs7_pad(data, block_size=8):
     pad_len = block_size - (len(data) % block_size)
     return data + bytes([pad_len]) * pad_len
@@ -159,7 +152,6 @@ def pkcs7_unpad(data, block_size=8):
     pad_len = data[-1]
     return data[:-pad_len]
 
-# ========== 3DES core ==========
 def triple_des_encrypt(plaintext, key1, key2, key3):
     k1 = int.from_bytes(key1, 'big')
     k2 = int.from_bytes(key2, 'big')

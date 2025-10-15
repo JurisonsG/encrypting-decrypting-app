@@ -17,20 +17,10 @@ def createFile(text, filename):
         file.write(text)
 
 def bytes_to_bitstring(data):
-    """
-    Pārvērš bytes objektu par bitu stringu '01001101...'.
-    data: baitu virkne
-    return: bitu string
-    """
     return ''.join(f'{byte:08b}' for byte in data)
 
 
 def bitstring_to_bytes(bitstring):
-    """
-    Pārvērš bitu stringu '01001101...' uz bytes objektu.
-    bitstring: string, garums %8 == 0
-    return: bytes
-    """
     if len(bitstring) % 8 != 0:
         raise ValueError("Bitu stringa garumam jābūt dalāmam ar 8")
     
